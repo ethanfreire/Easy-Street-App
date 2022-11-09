@@ -3,24 +3,33 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRouter = require('./routes/user.router');
+const productRouter = require('./routes/product.router');
+const cors = require('cors');
 
 dotenv.config();
 
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
-    console.log("DB Connection Successful woot");
+    console.log("DB Connection Successful.");
   })
   .catch((err) => {
     console.log(err);
   });
 
+
+  
+app.use(cors({
+  origin: "http://localhost:8000",
+
+}));
 app.use(express.json());
 
-app.use("/api/user",userRouter);
+app.use("/api/users",userRouter);
 
-app.get("/api/test", () => {
-  console.log("this is a test");
-});
+app.use("/api/product",productRouter);
+
+
+
 
 module.exports = { app };
