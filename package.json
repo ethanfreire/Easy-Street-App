@@ -1,0 +1,26 @@
+{
+  "name": "easy-street-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": { 
+    "install-client": "npm install --prefix client",
+    "install-server": "npm install --prefix server",
+    "install": "npm run install-server && npm run install-client",
+    "client":"npm start --prefix client",
+    "server":"npm run watch --prefix server",
+    "watch": "npm run server & npm run client",
+    "test": "npm run test --prefix server && npm run test --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanfreire/Easy-Street-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethanfreire/Easy-Street-App/issues"
+  },
+  "homepage": "https://github.com/ethanfreire/Easy-Street-App#readme"
+}
